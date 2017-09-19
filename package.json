@@ -20,7 +20,11 @@
   },
   "homepage": "https://github.com/wolfssy/07-http-server#readme",
   "dependencies": {
+    "dotenv": "^4.0.0",
     "jest": "^21.1.0",
     "superagent": "^3.6.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.12.1"
   }
 }
