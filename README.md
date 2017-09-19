@@ -89,6 +89,11 @@ When a client makes a POST request to /api/cowsay it should send JSON that inclu
   "error": "invalid request: text query required"
 }
 ```
+| Request | Response Status Code | Response Type | Response Body |
+| -- | -- | -- | -- |
+| With out a query | 400 | JSON | `{"error": "invalid request: query required"}` |
+| With out text property on the query | 400 | JSON | `{"error": "invalid request: text required"}` |
+| With text query | 200 | JSON | `{"content": "<cowsay cow text>"}` |
 
 ###### POST /api/cowsay 
 When a client makes a POST request to /api/cowsay it should send JSON that includes `{"text": "<message>"}`. 
@@ -111,8 +116,8 @@ When a client makes a POST request to /api/cowsay it should send JSON that inclu
 | Request | Response Status Code | Response Type | Response Body |
 | -- | -- | -- | -- |
 | With out a body | 400 | JSON | `{"error": "invalid request: body required"}` |
-| With out text property on the body | 400 | JSON | `{"error": "invalid request: text query required"}` |
-| With text query | 200 | JSON | `{"content": "<cowsay cow text>"}` |
+| With out text property on the body | 400 | JSON | `{"error": "invalid request: text required"}` |
+| With text body | 200 | JSON | `{"content": "<cowsay cow text>"}` |
 
 
 ## TEST
