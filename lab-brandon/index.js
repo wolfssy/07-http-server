@@ -1,9 +1,8 @@
-'use strict'
+'use strict';
 
-require('dotenv').config()
+require('dotenv').config();
 
-const server = require('./lib/server.js')
+const server = require('./lib/server.js');
 
-server.start(process.env.POST, () =>
-  console.log('Entering port: ',process.env.POST
-))
+server.start(process.env.PORT, () =>
+  console.log('server starting on: ', process.env.PORT));
