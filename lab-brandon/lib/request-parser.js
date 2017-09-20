@@ -7,7 +7,6 @@ module.exports = (req) => {
   return new Promise((resolve, reject) => {
     req.url = url.parse(req.url);
     req.url.query = queryString.parse(req.url.query);
-    console.log(req.url.query);
     if(!(req.method === 'POST' || req.method === 'PUT'))
       return resolve(req);
 
