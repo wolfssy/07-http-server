@@ -23,7 +23,7 @@ describe('POST /api/GET', () => {
   });
 
   test('should respond with a 400', () => {
-    return superagent.post('http://localhost:4000/api/cowsay')
+    return superagent.post('http://localhost:4000/api/coay')
     .set({ 'Content-Type': 'application/json'})
     .send('{')
     .then(Promise.reject)
