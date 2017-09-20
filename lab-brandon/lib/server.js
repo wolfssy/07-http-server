@@ -1,13 +1,16 @@
 'use strict';
 const http = require('http');
 const requestParser = require('./request-parser.js');
-
+const cowsay = require('cowsay');
 const app = http.createServer((req, res) => {
   requestParser(req)
   .then(req =>{
+    let cowss = { text: 'The End is Naaaayy!!'};
+    if(req.url.query.text)
+      cowss = req.url.query;
     if(req.method === 'GET' && req.url.pathname === '/'){
       res.writeHead(200, {'Content-Type': 'text/html'});
-      res.write(`<!DOCTYPE html>
+      res.write(`
         <!DOCTYPE html>
 <html>
   <head>
@@ -16,7 +19,7 @@ const app = http.createServer((req, res) => {
   <body>
     <h1> cowsay </h1>
     <pre>
-      <!-- cowsay.say({text: req.url.query.text}) -->
+      ${cowsay.say(cowss)}
     </pre>
   </body>
 </html>`);
@@ -30,7 +33,7 @@ const app = http.createServer((req, res) => {
       return;
     }
     res.writeHead(404,{
-      'Content-Type': 'text/plain'
+      'Content-Type': 'text/plain',
     });
     res.write(`resource ${req.url.pathname} not found!`);
     res.end();
