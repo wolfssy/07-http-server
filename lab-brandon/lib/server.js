@@ -47,7 +47,7 @@ const app = http.createServer((req, res) => {
 });
 
   //export interface
-  module.exports = {
-    start: (port, callback) => app.listen(port, callback),
-    stop: (callback) => app.close(callback),
-  };
+module.exports = {
+  start: (port, callback) => app.listen(port, callback),
+  stop: (callback) => app.close(callback),
+};
