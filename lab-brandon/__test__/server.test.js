@@ -2,15 +2,23 @@
 
 const superagent = require('superagent');
 
-describe('POST /echo', () => {
+describe('POST /api/GET', () => {
   test('should respond with 200 response and echo the body', () => {
     return superagent.post('http://localhost:4000/echo')
     .send({
-      title: 'hello world',
+      title: 'aaaayyy',
     })
     .then(res => {
       expect(res.status).toEqual(200);
-      expect(res.body).toEqual({title: 'hello world'});
+      expect(res.body).toEqual({`       ______________________
+< The End is Naaaayy!! >
+ ----------------------
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+    `});
     });
   });
 
@@ -23,6 +31,5 @@ describe('POST /echo', () => {
       expect(res.status).toEqual(400);
       expect(res.res.text).toEqual('bad request');
     });
-
   });
 });

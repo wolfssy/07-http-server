@@ -17,7 +17,7 @@ const app = http.createServer((req, res) => {
     <title> cowsay </title>
   </head>
   <body>
-    <h1> cowsay </h1>
+    <h1> Cow says what!? </h1>
     <pre>
       ${cowsay.say(cowss)}
     </pre>
